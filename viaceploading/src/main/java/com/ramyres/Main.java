@@ -6,6 +6,9 @@ public class Main {
         ViaCepApiParalelo api = new ViaCepApiParalelo(cep);
         api.start();
 
+        // Boolean status = true;
+        // Display display = new Display(status);
+        // display.start();
         Carregando carregando = new Carregando();
         carregando.start();
 
@@ -14,8 +17,13 @@ public class Main {
         // busca os dados, ao final, deve finalizar o carregamento e mostrar
         // as informações.
 
-
-        // Retorno
+        // Implementação de um semaforo!
+        do {
+            resposta = api.getResposta();
+        } while (resposta == null);
+        
+        carregando.finalizarCarregando();
+        
         mostrarInformacoesCep(resposta);
     }
 
